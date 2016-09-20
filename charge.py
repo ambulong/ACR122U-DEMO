@@ -70,7 +70,6 @@ for i in data[0:6]:
 	balance += 10**p*i
 	p = p-1
 
-balance = balance - cost
 print "余额: %.2f" % balance
 
 #Update Block 0x04: Charge Money 9999.99

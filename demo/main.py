@@ -9,13 +9,14 @@ import subprocess
 def getBalance():
    try:
 	   p = subprocess.Popen('python ../getbalance.py', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-	   print p.stdout.readlines()
+	   #print p.stdout.readlines()
 	   for line in p.stdout.readlines():
+	       print line
 	       if(line.find('Balance:') == 0):
-		   return line.replace('Balance: ','')
+		   return line.replace('Balance: ','').replace("\n",'')
 	   return 0
    except(ValueError): 
-   	return 0
+   	return -1
 
 #设置显示余额
 def setBalance():
@@ -35,8 +36,9 @@ def costBalance():
 	return
    try:
 	   p = subprocess.Popen('python ../cost.py '+c, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-	   print p.stdout.readlines()
+	   #print p.stdout.readlines()
 	   for line in p.stdout.readlines():
+	       print line
 	       if(line.find('Balance:') == 0):
 		   setBalance()
 		   cost.set(c)

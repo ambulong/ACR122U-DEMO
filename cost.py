@@ -75,13 +75,13 @@ for i in data[0:6]:
 	p = p-1
 #cost = round(random.uniform(1, 10), 2)
 cost = float(sys.argv[1])
-print "花费: %.2f" % cost
+print "Cost: %.2f" % cost
 if(cost > balance):
-	print "余额: %.2f (余额不足)" % balance
+	print "Balance: %.2f (Insufficient)" % balance
 	sys.exit()
 else:
 	balance = balance - cost
-	print "余额: %.2f" % balance
+	print "Balance: %.2f" % balance
 
 #Update Block 0x04
 balance = "%07.2f" % balance

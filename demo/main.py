@@ -35,15 +35,16 @@ def costBalance():
 	cost.set("0")
 	return
    try:
-	   p = subprocess.Popen('python ../cost.py '+c, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+	   p = subprocess.Popen('python ../cost.py ' + str(c), shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 	   #print p.stdout.readlines()
 	   for line in p.stdout.readlines():
 	       print line
 	       if(line.find('Balance:') == 0):
 		   setBalance()
 		   cost.set(c)
+		   success()
 		   return
-	   tkMessageBox.showinfo( "提示", "扣款失败")
+	   failed()
    except(ValueError): 
    	return 0
 

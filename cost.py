@@ -4,6 +4,10 @@ from smartcard.util import toHexString
 import random
 import sys
 
+if len(sys.argv) < 2:
+	print "usage: cost.py $cost$"
+	sys.exit()
+	
 r = readers()
 print "Available readers:", r
 
@@ -69,7 +73,8 @@ p = 3
 for i in data[0:6]:
 	balance += 10**p*i
 	p = p-1
-cost = round(random.uniform(1, 10), 2)
+#cost = round(random.uniform(1, 10), 2)
+cost = float(sys.argv[1])
 print "花费: %.2f" % cost
 if(cost > balance):
 	print "余额: %.2f (余额不足)" % balance
